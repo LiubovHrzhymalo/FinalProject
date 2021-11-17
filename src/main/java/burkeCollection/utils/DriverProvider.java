@@ -24,13 +24,7 @@ public class DriverProvider {
 //                }
 //            }
 //            break;
-//            case "firefox": {
-//                if (driver == null) {
-//                    System.setProperty("webdriver.gecko.driver", "..\\geckodriver.exe");
-//                    driver = new FirefoxDriver();
-//                }
-//            }
-//            break;
+//
 //            case "edge": {
 //                if (driver == null) {
 //                    System.setProperty("webdriver.edge.driver", "..\\msedgedriver.exe");

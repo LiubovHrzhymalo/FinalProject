@@ -1,22 +1,17 @@
 package burkeCollection.common;
 
 import io.qameta.allure.Step;
-import org.junit.jupiter.api.Assertions;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-
-
 public class MainPage {
     private WebDriver driver;
-
     public WebDriverWait wait;
-    Actions action;
 
     public MainPage(WebDriver driver) {
         this.driver = driver;
@@ -25,7 +20,6 @@ public class MainPage {
     }
 
     public void burkecollection(){
-
         driver.get("http://burkecollection.org/");
     }
 
@@ -92,9 +86,6 @@ public class MainPage {
     @FindBy(xpath="/html/body/div[3]/div[2]/div/h1")
     public WebElement aboutMaryGriggsBurke;
 
-//    @FindBy(xpath="/html/body/div[3]/div[2]/div/h1")
-//    public WebElement maryAndJacksonBurkeFoundation;
-
     @FindBy(xpath="//*[@id=\"page\"]/h1")
     public WebElement aboutTheBook;
 
@@ -106,11 +97,20 @@ public class MainPage {
 
     @Step("Move to button Artworks")
     public Actions moveToButtonArtworks(Actions action){
-//        Actions action;
         action.moveToElement(this.buttonArtworks);
         return action;
-
     }
+
+    @Step("Move to button Artworks")
+    public Actions moveToButtonAbout(Actions action){
+        action.moveToElement(this.buttonAbout);
+        return action;
+    }
+    @Step("Pressing the Enter button for the search field")
+    public void enterButton(){
+        this.buttonSearchFlield.sendKeys(Keys.ENTER);
+    }
+
 
 }
 
