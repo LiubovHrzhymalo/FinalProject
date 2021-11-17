@@ -1,15 +1,22 @@
 package burkeCollection.common;
 
+import io.qameta.allure.Step;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+
 
 public class MainPage {
     private WebDriver driver;
 
     public WebDriverWait wait;
+    Actions action;
 
     public MainPage(WebDriver driver) {
         this.driver = driver;
@@ -21,11 +28,6 @@ public class MainPage {
 
         driver.get("http://burkecollection.org/");
     }
-
-//    public void burkePainting(){
-//
-//        driver.get("http://burkecollection.org/catalogue/952-melon-flowers-and-insects");
-//    }
 
     @FindBy(xpath=" //*[@id=\"top\"]/ul/li[2]/a")
     public WebElement buttonArtworks;
@@ -99,23 +101,16 @@ public class MainPage {
     @FindBy(xpath="//*[@id=\"page\"]/h1")
     public WebElement generalPage;
 
-//    @FindBy(xpath="/html/body/div[3]/div[2]/div/div[3]/div[1]/div")
-//    public WebElement buttonClickToEnlarge;
-
-//    @FindBy(xpath = "/html/body/div[3]/div[2]/div/div[3]/div[1]/img")
-//    public WebElement imgArea;
-//
-//    @FindBy(id="lightbox")
-//    public WebElement imgBig;
-//
-//    @FindBy(xpath = "//*[@id=\"lightbox\"]")
-//    public WebElement buttonClickZoom;
-//
-//    @FindBy(xpath = "/html/body/div[5]/div[1]")
-//    public WebElement buttonClose;
-
     @FindBy(xpath = "/html/body/div[3]/div[2]/div/div[2]/div[2]/a/div/div[2]")
     public WebElement titlePainting;
+
+    @Step("Move to button Artworks")
+    public Actions moveToButtonArtworks(Actions action){
+//        Actions action;
+        action.moveToElement(this.buttonArtworks);
+        return action;
+
+    }
 
 }
 

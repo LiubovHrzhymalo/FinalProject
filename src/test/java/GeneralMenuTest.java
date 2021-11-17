@@ -1,3 +1,4 @@
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -9,7 +10,9 @@ public class GeneralMenuTest extends BaseTest {
 //    Actions action;
 
 
-//    @Before
+    @Before
+    public void burkecollection(){
+            mainPage.burkecollection();}
 //    public void setUp() {
 //        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 //        driver = new ChromeDriver();
@@ -27,21 +30,24 @@ public class GeneralMenuTest extends BaseTest {
 
     @Test
     public void menuButtonArtworks() {
-        mainPage.burkecollection();
-
-        action.moveToElement(mainPage.buttonArtworks).moveToElement(mainPage.buttonCollectingAreas).click().build().perform();
+//        mainPage.burkecollection();
+        mainPage.moveToButtonArtworks(action).moveToElement(mainPage.buttonCollectingAreas).click().build().perform();
+//        action.moveToElement(mainPage.buttonArtworks).moveToElement(mainPage.buttonCollectingAreas).click().build().perform();
         String pageArtworksInTheCollection=mainPage.artworksInTheCollection.getText();
         Assertions.assertEquals(pageArtworksInTheCollection,"Artworks in the collection");
 
-        action.moveToElement(mainPage.buttonArtworks).moveToElement(mainPage.buttonArtists).click().build().perform();
+        mainPage.moveToButtonArtworks(action).moveToElement(mainPage.buttonArtists).click().build().perform();
+//        action.moveToElement(mainPage.buttonArtworks).moveToElement(mainPage.buttonArtists).click().build().perform();
         String pageArtists=mainPage.artistsInTheCollection.getText();
         Assertions.assertEquals(pageArtists,"Artists in the collection");
 
-        action.moveToElement(mainPage.buttonArtworks).moveToElement(mainPage.buttonPeriods).click().build().perform();
+        mainPage.moveToButtonArtworks(action).moveToElement(mainPage.buttonPeriods).click().build().perform();
+//        action.moveToElement(mainPage.buttonArtworks).moveToElement(mainPage.buttonPeriods).click().build().perform();
         String pageHistoricalPeriods=mainPage.historicalPeriods.getText();
         Assertions.assertEquals(pageHistoricalPeriods,"Historical Periods");
 
-        action.moveToElement(mainPage.buttonArtworks).moveToElement(mainPage.buttonFormats).click().build().perform();
+        mainPage.moveToButtonArtworks(action).moveToElement(mainPage.buttonFormats).click().build().perform();
+//        action.moveToElement(mainPage.buttonArtworks).moveToElement(mainPage.buttonFormats).click().build().perform();
         String pageFormatsAndObjectTypes=mainPage.formatsAndObjectTypes.getText();
         Assertions.assertEquals(pageFormatsAndObjectTypes,"Formats and object types");
 
@@ -51,7 +57,7 @@ public class GeneralMenuTest extends BaseTest {
     }
     @Test
     public void menuButtonAbout() {
-        mainPage.burkecollection();
+//        mainPage.burkecollection();
 
         action.moveToElement(mainPage.buttonAbout).moveToElement(mainPage.buttonCollection).click().build().perform();
         String pageHistoryOfTheCollection=mainPage.historyOfTheCollection.getText();
@@ -71,7 +77,7 @@ public class GeneralMenuTest extends BaseTest {
     }
     @Test
     public void menuButtonBookAndGeneralPage() {
-        mainPage.burkecollection();
+//        mainPage.burkecollection();
         mainPage.wait.until(ExpectedConditions.elementToBeClickable(mainPage.buttonBook));
         mainPage.buttonBook.click();
         String pageAboutTheBook=mainPage.aboutTheBook.getText();
