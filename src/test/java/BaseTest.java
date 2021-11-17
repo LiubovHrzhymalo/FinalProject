@@ -1,4 +1,5 @@
-import locators.MainPage;
+import burkeCollection.common.CataloguePage;
+import burkeCollection.common.MainPage;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
@@ -11,6 +12,7 @@ public class BaseTest {
     WebDriver driver;
     MainPage mainPage;
     Actions action;
+    CataloguePage cataloguePage;
 
     @Before
     public void setUp() {
@@ -20,6 +22,8 @@ public class BaseTest {
 
         mainPage = new MainPage(driver);
         action = new Actions(driver);
+
+       cataloguePage = new CataloguePage(driver);
     }
 
     @After

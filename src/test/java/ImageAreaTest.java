@@ -1,15 +1,9 @@
-import locators.MainPage;
-import org.junit.After;
-import org.junit.Before;
+
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.concurrent.TimeUnit;
 public class ImageAreaTest extends BaseTest {
 //    WebDriver driver;
 //    MainPage mainPage;
@@ -34,21 +28,16 @@ public class ImageAreaTest extends BaseTest {
 
     @Test
     public void menuImageArea() {
-        mainPage.burkePainting();
-        action.moveToElement(mainPage.imgArea).moveToElement(mainPage.buttonClickToEnlarge).click().build().perform();
-        String styleImg=mainPage.imgBig.getAttribute("id");
+        cataloguePage.burkePainting();
+        action.moveToElement(cataloguePage.imgArea).moveToElement(cataloguePage.buttonClickToEnlarge).click().build().perform();
+        String styleImg=cataloguePage.imgBig.getAttribute("id");
         Assertions.assertEquals(styleImg,"lightbox");
         WebDriverWait wait = new WebDriverWait(driver, 40);
-
-//        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id=\"zoom-instructions\"]")));
-        mainPage.wait.until(ExpectedConditions.elementToBeClickable(mainPage.buttonClickZoom));
-        mainPage.buttonClickZoom.click();
+        cataloguePage.wait.until(ExpectedConditions.elementToBeClickable(cataloguePage.buttonClickZoom));
+        cataloguePage.buttonClickZoom.click();
         Assertions.assertEquals(styleImg,"lightbox");
-        mainPage.wait.until(ExpectedConditions.elementToBeClickable(mainPage.buttonClose));
-        mainPage.buttonClose.click();
+        cataloguePage.wait.until(ExpectedConditions.elementToBeClickable(cataloguePage.buttonClose));
+        cataloguePage.buttonClose.click();
         System.out.println("Test menuImageArea: The modal works according to the requirements.");
-
-
     }
-
 }

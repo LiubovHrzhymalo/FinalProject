@@ -1,7 +1,5 @@
-import locators.MainPage;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 

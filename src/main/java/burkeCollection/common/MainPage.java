@@ -1,11 +1,10 @@
-package locators;
+package burkeCollection.common;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 
 public class MainPage {
     private WebDriver driver;
@@ -23,10 +22,10 @@ public class MainPage {
         driver.get("http://burkecollection.org/");
     }
 
-    public void burkePainting(){
-
-        driver.get("http://burkecollection.org/catalogue/952-melon-flowers-and-insects");
-    }
+//    public void burkePainting(){
+//
+//        driver.get("http://burkecollection.org/catalogue/952-melon-flowers-and-insects");
+//    }
 
     @FindBy(xpath=" //*[@id=\"top\"]/ul/li[2]/a")
     public WebElement buttonArtworks;
@@ -91,8 +90,8 @@ public class MainPage {
     @FindBy(xpath="/html/body/div[3]/div[2]/div/h1")
     public WebElement aboutMaryGriggsBurke;
 
-    @FindBy(xpath="/html/body/div[3]/div[2]/div/h1")
-    public WebElement maryAndJacksonBurkeFoundation;
+//    @FindBy(xpath="/html/body/div[3]/div[2]/div/h1")
+//    public WebElement maryAndJacksonBurkeFoundation;
 
     @FindBy(xpath="//*[@id=\"page\"]/h1")
     public WebElement aboutTheBook;
@@ -100,30 +99,23 @@ public class MainPage {
     @FindBy(xpath="//*[@id=\"page\"]/h1")
     public WebElement generalPage;
 
-    @FindBy(xpath="/html/body/div[3]/div[2]/div/div[3]/div[1]/div")
-    public WebElement buttonClickToEnlarge;
+//    @FindBy(xpath="/html/body/div[3]/div[2]/div/div[3]/div[1]/div")
+//    public WebElement buttonClickToEnlarge;
 
-    @FindBy(xpath = "/html/body/div[3]/div[2]/div/div[3]/div[1]/img")
-    public WebElement imgArea;
-
-    @FindBy(id="lightbox")
-    public WebElement imgBig;
-
-//    @FindBy(xpath = "//*[@id=\"zoom-instructions\"]")
+//    @FindBy(xpath = "/html/body/div[3]/div[2]/div/div[3]/div[1]/img")
+//    public WebElement imgArea;
+//
+//    @FindBy(id="lightbox")
+//    public WebElement imgBig;
+//
+//    @FindBy(xpath = "//*[@id=\"lightbox\"]")
 //    public WebElement buttonClickZoom;
-
-    @FindBy(xpath = "//*[@id=\"lightbox\"]")
-    public WebElement buttonClickZoom;
-//    @FindBy(xpath = "/html/body")
-//    public WebElement buttonClickZoom;
-
-    @FindBy(xpath = "/html/body/div[5]/div[1]")
-    public WebElement buttonClose;
+//
+//    @FindBy(xpath = "/html/body/div[5]/div[1]")
+//    public WebElement buttonClose;
 
     @FindBy(xpath = "/html/body/div[3]/div[2]/div/div[2]/div[2]/a/div/div[2]")
     public WebElement titlePainting;
-
-
 
 }
 
