@@ -9,15 +9,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class RestTest {
     @Test
     public void getUsers(){
-        List<UserData> users=given()
+        List<UserListData> users=given()
                 .baseUri("https://reqres.in/api")
                 .basePath("/users")
                 .contentType(ContentType.JSON)
                 .when().get()
                 .then()
                 .statusCode(200)
-                .extract().jsonPath().getList("data", UserData.class);
-        assertThat(users).extracting(UserData::getLast_name).contains("Morris");
+                .extract().jsonPath().getList("data", UserListData.class);
+        assertThat(users).extracting(UserListData::getLast_name).contains("Morris");
     }
     @Test
     public void createUser(){

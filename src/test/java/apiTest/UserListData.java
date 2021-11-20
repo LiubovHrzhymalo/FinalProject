@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 //    private String email;
 //}
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UserData {
+public class UserListData {
     public int getId() {
         return id;
     }
