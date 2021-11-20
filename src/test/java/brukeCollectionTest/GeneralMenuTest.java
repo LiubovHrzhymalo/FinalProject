@@ -1,3 +1,5 @@
+package brukeCollectionTest;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
@@ -8,7 +10,8 @@ public class GeneralMenuTest extends BaseTest {
 
     @Before
     public void burkecollection(){
-            mainPage.burkecollection();
+
+        mainPage.burkecollection();
     }
 
     @Test

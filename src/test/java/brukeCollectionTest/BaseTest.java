@@ -1,3 +1,5 @@
+package brukeCollectionTest;
+
 import burkeCollection.common.CataloguePage;
 import burkeCollection.common.MainPage;
 import burkeCollection.utils.DriverProvider;
