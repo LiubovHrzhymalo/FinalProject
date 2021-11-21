@@ -1,24 +1,27 @@
 package apiTest;
 
+import apiTest.utils.UserCreateUpdateData;
+import apiTest.utils.UserListData;
 import io.restassured.http.ContentType;
 import org.junit.Test;
 import java.util.List;
+import static apiTest.StepsApiTest.REQUEST_SPEC;
 import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class RestTest {
+public class CRUDTest {
+
     @Test
     public void getUsers(){
-        List<UserListData> users=given()
-                .baseUri("https://reqres.in/api")
-                .basePath("/users")
-                .contentType(ContentType.JSON)
+        List<UserListData> users= (List<UserListData>) given()
+                .spec(REQUEST_SPEC)
                 .when().get()
                 .then()
                 .statusCode(200)
                 .extract().jsonPath().getList("data", UserListData.class);
         assertThat(users).extracting(UserListData::getLast_name).contains("Morris");
     }
+
     @Test
     public void createUser(){
         UserCreateUpdateData rq=new UserCreateUpdateData();
@@ -26,9 +29,7 @@ public class RestTest {
         rq.setJob("super agent");
 
         UserCreateUpdateData rs= given()
-        .baseUri("https://reqres.in/api")
-        .basePath("/users")
-        .contentType(ContentType.JSON)
+        .spec(REQUEST_SPEC)
         .body(rq)
         .when().post()
         .then().extract().as(UserCreateUpdateData.class);
@@ -45,9 +46,7 @@ public class RestTest {
         rq.setJob("super agent second");
 
         UserCreateUpdateData rs= given()
-                .baseUri("https://reqres.in/api/2")
-                .basePath("/users")
-                .contentType(ContentType.JSON)
+                .spec(REQUEST_SPEC)
                 .body(rq)
                 .when().put()
                 .then().extract().as(UserCreateUpdateData.class);

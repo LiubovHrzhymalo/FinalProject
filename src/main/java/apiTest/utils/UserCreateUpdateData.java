@@ -1,4 +1,4 @@
-package apiTest;
+package apiTest.utils;
 
 import lombok.Data;
 
